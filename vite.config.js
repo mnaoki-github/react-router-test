@@ -5,7 +5,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build : {
-    outDir: './docs'
+    outDir: './docs' //build出力先
   },
-  base:'/react-router-test/',
+  base: process.env.GITHUB_PAGES
+    ? '/react-router-test/' // レポジトリ名を設定
+    : './',
 })
